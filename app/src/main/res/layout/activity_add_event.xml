@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#001F3F"> <!-- Dark Blue Background -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add New Event"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#800000"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Event Title"
+            android:textColorHint="#CCCCCC"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/white" />
+
+        <EditText
+            android:id="@+id/etDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:textColorHint="#CCCCCC"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/white"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/etDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select Date"
+            android:focusable="false"
+            android:textColorHint="#CCCCCC"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/white"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/etLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search Location"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:textColorHint="#CCCCCC"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/white"
+            android:layout_marginTop="10dp" />
+
+        <org.osmdroid.views.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="15dp" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Save Event"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+</ScrollView>

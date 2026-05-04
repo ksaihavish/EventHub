@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#001F3F"
+    android:padding="16dp">
+
+    <TextView
+        style="@style/SettingsHeader"
+        android:text="Settings" />
+
+    <!-- Appearance -->
+    <LinearLayout android:id="@+id/layoutAppearance" style="@style/SettingsItem">
+        <ImageView style="@style/SettingsIcon" android:src="@android:drawable/ic_menu_manage" />
+        <TextView style="@style/SettingsText" android:text="Appearance" android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <!-- Privacy -->
+    <LinearLayout android:id="@+id/layoutPrivacy" style="@style/SettingsItem">
+        <ImageView style="@style/SettingsIcon" android:src="@android:drawable/ic_lock_lock" />
+        <TextView style="@style/SettingsText" android:text="Privacy &amp; Security" android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <!-- Feedback -->
+    <LinearLayout android:id="@+id/layoutFeedback" style="@style/SettingsItem">
+        <ImageView style="@style/SettingsIcon" android:src="@android:drawable/ic_menu_send" />
+        <TextView style="@style/SettingsText" android:text="Send Feedback" android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <!-- Rate -->
+    <LinearLayout android:id="@+id/layoutRate" style="@style/SettingsItem">
+        <ImageView style="@style/SettingsIcon" android:src="@android:drawable/btn_star_big_on" />
+        <TextView style="@style/SettingsText" android:text="Rate Our App" android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <!-- About -->
+    <LinearLayout android:id="@+id/layoutAbout" style="@style/SettingsItem">
+        <ImageView style="@style/SettingsIcon" android:src="@android:drawable/ic_menu_info_details" />
+        <TextView style="@style/SettingsText" android:text="About EventHub" android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</LinearLayout>

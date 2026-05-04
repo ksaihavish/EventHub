@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.eventhub">
+
+    <!-- REQUIRED PERMISSIONS -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- FIX: If you use FINE, you MUST also include COARSE -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:label="EventHub"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/Theme.EventHub"
+        android:usesCleartextTraffic="true">
+
+        <!-- SPLASH SCREEN (LAUNCHER) -->
+        <activity
+            android:name=".SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.EventHub.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- ALL OTHER ACTIVITIES -->
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".AddEventActivity" />
+        <activity android:name=".EventListActivity" />
+        <activity android:name=".ViewEventsOnMapActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".EventDetailActivity" />
+
+    </application>
+</manifest>
