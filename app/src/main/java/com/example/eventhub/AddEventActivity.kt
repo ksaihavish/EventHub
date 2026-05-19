@@ -65,6 +65,17 @@ class AddEventActivity : AppCompatActivity() {
         }
         binding.mapView.overlays.add(MapEventsOverlay(mReceive))
 
+        // Edit Mode Check
+        val eventToEdit = intent.getSerializableExtra("EDIT_EVENT") as? Event
+        if (eventToEdit != null) {
+            binding.etTitle.setText(eventToEdit.title)
+            binding.etDesc.setText(eventToEdit.description)
+            binding.etDate.setText(eventToEdit.date)
+            binding.etLocation.setText(eventToEdit.locationName)
+            updateMapUI(eventToEdit.latitude, eventToEdit.longitude, eventToEdit.locationName)
+            binding.btnSave.text = "Update Event"
+        }
+
         // Save Button
         binding.btnSave.setOnClickListener {
             val title = binding.etTitle.text.toString().trim()
@@ -76,9 +87,25 @@ class AddEventActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val event = Event(title, binding.etDesc.text.toString(), date, locName, selectedLatitude, selectedLongitude)
-            SharedPrefManager.getInstance(this).saveEvent(event)
-            Toast.makeText(this, "Event Saved! ✅", Toast.LENGTH_SHORT).show()
+            val newEvent = Event(
+                id = eventToEdit?.id ?: java.util.UUID.randomUUID().toString(), // Keep existing ID if editing
+                title = title, 
+                description = binding.etDesc.text.toString(), 
+                date = date, 
+                locationName = locName, 
+                latitude = selectedLatitude, 
+                longitude = selectedLongitude
+            )
+            
+            if (eventToEdit != null) {
+                SharedPrefManager.getInstance(this).updateEvent(eventToEdit, newEvent)
+                FirestoreManager.saveEvent(newEvent)
+                Toast.makeText(this, "Event Updated! ✅", Toast.LENGTH_SHORT).show()
+            } else {
+                SharedPrefManager.getInstance(this).saveEvent(newEvent)
+                FirestoreManager.saveEvent(newEvent)
+                Toast.makeText(this, "Event Saved! ✅", Toast.LENGTH_SHORT).show()
+            }
             finish()
         }
     }

@@ -2,13 +2,16 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#001F3F"> <!-- Dark Blue Background -->
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="32dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -16,63 +19,118 @@
             android:text="Add New Event"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="#800000"
-            android:layout_marginBottom="20dp" />
+            android:textColor="@color/textPrimary"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TITLE"
+            android:textColor="@color/primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:layout_marginBottom="6dp"/>
 
         <EditText
             android:id="@+id/etTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:hint="Event Title"
-            android:textColorHint="#CCCCCC"
-            android:textColor="@android:color/white"
-            android:backgroundTint="@android:color/white" />
+            android:textColorHint="@color/text_dim"
+            android:textColor="@color/text_primary"
+            android:background="@drawable/edittext_bg"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="18dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DESCRIPTION"
+            android:textColor="@color/primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:layout_marginBottom="6dp"/>
 
         <EditText
             android:id="@+id/etDesc"
             android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:hint="Describe the event"
+            android:textColorHint="@color/text_dim"
+            android:textColor="@color/text_primary"
+            android:background="@drawable/edittext_bg"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="12dp"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="18dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Description"
-            android:textColorHint="#CCCCCC"
-            android:textColor="@android:color/white"
-            android:backgroundTint="@android:color/white"
-            android:layout_marginTop="10dp" />
+            android:text="DATE"
+            android:textColor="@color/primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:layout_marginBottom="6dp"/>
 
         <EditText
             android:id="@+id/etDate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:hint="Select Date"
             android:focusable="false"
-            android:textColorHint="#CCCCCC"
-            android:textColor="@android:color/white"
-            android:backgroundTint="@android:color/white"
-            android:layout_marginTop="10dp" />
+            android:textColorHint="@color/text_dim"
+            android:textColor="@color/text_primary"
+            android:background="@drawable/edittext_bg"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="18dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOCATION"
+            android:textColor="@color/primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:layout_marginBottom="6dp"/>
 
         <EditText
             android:id="@+id/etLocation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:hint="Search Location"
             android:imeOptions="actionSearch"
             android:inputType="text"
-            android:textColorHint="#CCCCCC"
-            android:textColor="@android:color/white"
-            android:backgroundTint="@android:color/white"
-            android:layout_marginTop="10dp" />
+            android:textColorHint="@color/text_dim"
+            android:textColor="@color/text_primary"
+            android:background="@drawable/edittext_bg"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="16dp"/>
 
         <org.osmdroid.views.MapView
             android:id="@+id/mapView"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginTop="15dp" />
+            android:layout_height="280dp"
+            android:layout_marginBottom="24dp"/>
 
         <Button
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="52dp"
             android:text="Save Event"
-            android:layout_marginTop="20dp" />
+            android:textColor="@color/on_primary"
+            android:backgroundTint="@color/primary"
+            android:textAllCaps="false"
+            android:textSize="15sp"/>
 
     </LinearLayout>
 </ScrollView>

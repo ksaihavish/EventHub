@@ -1,10 +1,13 @@
 package com.example.eventhub
 
+import java.io.Serializable
+
 data class Event(
-    val title: String,
-    val description: String,
-    val date: String,
-    val locationName: String,
-    val latitude: Double,  // Must be Double
-    val longitude: Double  // Must be Double
-)
+    var id: String = java.util.UUID.randomUUID().toString(),
+    var title: String = "",
+    var description: String = "",
+    var date: String = "",
+    var locationName: String = "",
+    var latitude: Double = 0.0,
+    var longitude: Double = 0.0
+) : Serializable

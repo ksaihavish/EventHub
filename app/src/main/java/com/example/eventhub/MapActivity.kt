@@ -68,7 +68,24 @@ class MapActivity : AppCompatActivity() {
         marker.snippet = snippet
 
         marker.setOnMarkerClickListener { _, _ ->
-            Toast.makeText(this, "Location: $title", Toast.LENGTH_SHORT).show()
+            marker.showInfoWindow()
+            android.app.AlertDialog.Builder(this)
+                .setTitle(title)
+                .setMessage("Get directions to this location?")
+                .setPositiveButton("Directions") { _, _ ->
+                    val uri = android.net.Uri.parse("google.navigation:q=${point.latitude},${point.longitude}")
+                    val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, uri)
+                    intent.setPackage("com.google.android.apps.maps")
+                    try {
+                        startActivity(intent)
+                    } catch (e: Exception) {
+                        // Fallback if Maps app is not installed
+                        val fallbackUri = android.net.Uri.parse("https://www.google.com/maps/dir/?api=1&destination=${point.latitude},${point.longitude}")
+                        startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, fallbackUri))
+                    }
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
             true
         }
 

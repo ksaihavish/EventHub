@@ -40,6 +40,9 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".EventDetailActivity" />
+        <activity android:name=".MapActivity" />
+        <activity android:name=".ChatActivity" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ViewEventsActivity" />
 
     </application>
 </manifest>

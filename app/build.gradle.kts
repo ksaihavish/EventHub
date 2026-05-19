@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -21,6 +22,14 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        
+        val localProperties = java.util.Properties()
+        val localPropertiesFile = rootProject.file("local.properties")
+        if (localPropertiesFile.exists()) {
+            localProperties.load(java.io.FileInputStream(localPropertiesFile))
+        }
+        val apiKey = localProperties.getProperty("GEMINI_API_KEY") ?: "YOUR_API_KEY_HERE"
+        buildConfigField("String", "GEMINI_API_KEY", "\"$apiKey\"")
     }
 
     // Ensures Java and Kotlin both use bytecode version 21
@@ -40,6 +49,7 @@ android {
     buildFeatures {
         viewBinding = true
         compose = true
+        buildConfig = true
     }
 }
 
@@ -47,10 +57,11 @@ dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation("com.google.firebase:firebase-auth-ktx")
-    implementation("com.google.firebase:firebase-database-ktx")
+    implementation("com.google.firebase:firebase-database-ktx") // Optional: Can remove if only using Firestore
+    implementation("com.google.firebase:firebase-firestore-ktx")
 
-    // 2. GSON (For Event storage)
-    implementation("com.google.code.gson:gson:2.10.1")
+    // GSON (For Event storage)
+    implementation("com.google.code.gson:gson:2.13.2")
     // Core Android Libraries
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
@@ -65,8 +76,12 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.activity.compose)
 
-    // Data and Networking
-    implementation("com.google.code.gson:gson:2.13.2")
+
+    // Google Sign-In
+    implementation("com.google.android.gms:play-services-auth:21.3.0")
+
+    // Generative AI (Gemini) for Chatbot
+    implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
 
     // Maps (OSM) and Location
     implementation("org.osmdroid:osmdroid-android:6.1.20")

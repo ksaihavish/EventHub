@@ -1,56 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="20dp"
-    android:background="#001F3F">
+    android:background="@color/background"
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Create Account"
-        android:textColor="#800000"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="30dp"/>
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingTop="48dp"
+        android:paddingBottom="32dp">
 
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Enter Email"
-        android:textColorHint="#CCCCCC"
-        android:textColor="@android:color/white"
-        android:backgroundTint="@android:color/white"
-        android:inputType="textEmailAddress" />
+        <!-- App Icon -->
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginBottom="16dp"/>
 
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Create Password"
-        android:textColorHint="#CCCCCC"
-        android:textColor="@android:color/white"
-        android:backgroundTint="@android:color/white"
-        android:inputType="textPassword"
-        android:layout_marginTop="10dp" />
+        <!-- Heading -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Account"
+            android:textColor="@color/textPrimary"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp"/>
 
-    <Button
-        android:id="@+id/btnSignup"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Sign Up"
-        android:layout_marginTop="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Join EventHub today"
+            android:textColor="@color/text_dim"
+            android:textSize="14sp"
+            android:layout_marginBottom="36dp"/>
 
-    <TextView
-        android:id="@+id/tvBackToLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:gravity="center"
-        android:text="Already have an account? Login"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="20dp" />
+        <!-- Email Field -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="Email"
+            android:textColorHint="@color/text_dim"
+            android:textColor="@color/text_primary"
+            android:background="@drawable/edittext_bg"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="12dp"/>
 
-</LinearLayout>
+        <!-- Password Field -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="Create Password"
+            android:textColorHint="@color/text_dim"
+            android:textColor="@color/text_primary"
+            android:background="@drawable/edittext_bg"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:inputType="textPassword"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Create Account Button -->
+        <Button
+            android:id="@+id/btnSignup"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Create Account"
+            android:textColor="@color/on_primary"
+            android:backgroundTint="@color/primary"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Back to Login Link -->
+        <TextView
+            android:id="@+id/tvBackToLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="Already have an account? Login"
+            android:textColor="@color/primary"
+            android:textSize="14sp"
+            android:padding="10dp"/>
+
+    </LinearLayout>
+</ScrollView>

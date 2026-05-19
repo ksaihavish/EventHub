@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew installDebug)",
+      "Read(//c/Program Files/Android/Android Studio/jbr/**)",
+      "Read(//c/Program Files/Android/Android Studio/**)",
+      "Bash(JAVA_HOME=\"C:/Program Files/Android/Android Studio/jbr\" PATH=\"$JAVA_HOME/bin:$PATH\" java -version 2>&1)",
+      "Read(//c/Program Files/Android/**)",
+      "Read(//c/Program Files/Java/**)",
+      "Read(//c/Program Files/Microsoft/**)",
+      "Bash(where java:*)",
+      "Read(//c/Users/lio48/.gradle/**)",
+      "Read(//c/Users/lio48/AppData/Local/Programs/**)",
+      "Read(//c/Program Files/**)",
+      "Bash(\"C:/Program Files/Android/Android Studio/jbr/bin/java\" -version 2>&1)",
+      "Bash(JAVA_HOME=\"C:/Program Files/Android/Android Studio/jbr\" PATH=\"$JAVA_HOME/bin:$PATH\" ./gradlew installDebug)",
+      "Bash(\"C:/Users/lio48/AppData/Local/Android/Sdk/platform-tools/adb\" devices:*)",
+      "Bash(./gradlew assembleDebug)",
+      "Bash(java -version)",
+      "Bash(echo \"JAVA_HOME=$JAVA_HOME\")",
+      "Bash(export JAVA_HOME=\"C:/Program Files/Android/Android Studio/jbr\")",
+      "Bash(export PATH=\"$JAVA_HOME/bin:$PATH\")",
+      "Bash(adb devices:*)",
+      "Read(//c/Users/lio48/AndroidStudioProjects/EventHub/$LOCALAPPDATA/Android/Sdk/**)",
+      "Read(//c/Users/lio48/AppData/Local/Android/Sdk/platform-tools/**)",
+      "Bash(ADB=\"C:/Users/lio48/AppData/Local/Android/Sdk/platform-tools/adb.exe\")",
+      "Bash(\"$ADB\" devices:*)",
+      "Bash(\"$ADB\" install:*)",
+      "Bash(\"$ADB\" shell:*)",
+      "Bash(\"$ADB\" logcat:*)",
+      "Bash(keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android)",
+      "Bash(keytool -list -v -keystore \"C:/Users/lio48/.android/debug.keystore\" -alias androiddebugkey -storepass android -keypass android)",
+      "Bash(\"C:/Program Files/Android/Android Studio/jbr/bin/keytool\" -list -v -keystore \"C:/Users/lio48/.android/debug.keystore\" -alias androiddebugkey -storepass android -keypass android)"
+    ]
+  }
+}

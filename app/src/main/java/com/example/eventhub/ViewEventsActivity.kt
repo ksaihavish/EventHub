@@ -17,10 +17,10 @@ class ViewEventsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Initialize adapter with an empty list and a click listener
-        adapter = EventAdapter(mutableListOf()) { selectedEvent ->
+        adapter = EventAdapter(mutableListOf(), onItemClick = { selectedEvent ->
             // Show a message when an event is clicked in the list
             Toast.makeText(this, "Event: ${selectedEvent.title}", Toast.LENGTH_SHORT).show()
-        }
+        })
 
         binding.rvEvents.layoutManager = LinearLayoutManager(this)
         binding.rvEvents.adapter = adapter

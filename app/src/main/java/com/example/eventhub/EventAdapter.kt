@@ -8,7 +8,8 @@ import com.example.eventhub.databinding.ItemEventBinding
 
 class EventAdapter(
     private var eventList: List<Event>,
-    private val onItemClick: (Event) -> Unit
+    private val onItemClick: (Event) -> Unit,
+    private val onItemLongClick: ((Event) -> Unit)? = null
 ) : RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
 
     fun submitList(newList: List<Event>) {
@@ -32,7 +33,7 @@ class EventAdapter(
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         val event = eventList[position]
-        holder.bind(event, onItemClick)
+        holder.bind(event, onItemClick, onItemLongClick)
     }
 
     override fun getItemCount(): Int = eventList.size
@@ -40,7 +41,7 @@ class EventAdapter(
     class EventViewHolder(private val binding: ItemEventBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(event: Event, clickListener: (Event) -> Unit) {
+        fun bind(event: Event, clickListener: (Event) -> Unit, longClickListener: ((Event) -> Unit)?) {
             // Mapping data to UI
             binding.tvTitle.text = event.title
             binding.tvDesc.text = event.locationName
@@ -62,6 +63,12 @@ class EventAdapter(
                 intent.putExtra("EVENT_NAME", event.title)
 
                 context.startActivity(intent)
+            }
+
+            // Handle long press for delete
+            binding.root.setOnLongClickListener {
+                longClickListener?.invoke(event)
+                longClickListener != null
             }
         }
     }

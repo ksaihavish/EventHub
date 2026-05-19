@@ -24,15 +24,36 @@ class ViewEventsOnMapActivity : AppCompatActivity() {
         binding.mapView.setMultiTouchControls(true)
         binding.rvMapEvents.layoutManager = LinearLayoutManager(this)
 
-        binding.rvMapEvents.adapter = EventAdapter(events) { event ->
+        binding.rvMapEvents.adapter = EventAdapter(events, onItemClick = { event ->
             focusOnEvent(event)
-        }
+        })
 
         events.forEach { event ->
             val marker = Marker(binding.mapView)
             marker.position = GeoPoint(event.latitude, event.longitude)
             marker.title = event.title
             marker.snippet = event.locationName
+            
+            marker.setOnMarkerClickListener { _, _ ->
+                marker.showInfoWindow()
+                android.app.AlertDialog.Builder(this@ViewEventsOnMapActivity)
+                    .setTitle(event.title)
+                    .setMessage("Get directions to this event?")
+                    .setPositiveButton("Directions") { _, _ ->
+                        val uri = android.net.Uri.parse("google.navigation:q=${event.latitude},${event.longitude}")
+                        val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, uri)
+                        intent.setPackage("com.google.android.apps.maps")
+                        try {
+                            startActivity(intent)
+                        } catch (e: Exception) {
+                            val fallbackUri = android.net.Uri.parse("https://www.google.com/maps/dir/?api=1&destination=${event.latitude},${event.longitude}")
+                            startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, fallbackUri))
+                        }
+                    }
+                    .setNegativeButton("Cancel", null)
+                    .show()
+                true
+            }
             binding.mapView.overlays.add(marker)
         }
 

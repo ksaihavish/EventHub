@@ -3,19 +3,20 @@
 
     <!-- MAIN APP THEME -->
     <style name="Theme.EventHub" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Main Colors -->
         <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
         <item name="colorSecondary">@color/accent</item>
-
-        <!-- Sets the default background for the app to Dark Blue -->
-        <item name="android:colorBackground">#001F3F</item>
-        <item name="android:windowBackground">#001F3F</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
-    <!-- SPLASH THEME (Prevents the white/black flash at startup) -->
+    <!-- SPLASH THEME -->
     <style name="Theme.EventHub.Splash" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- This makes the very first frame Dark Blue to match your app background -->
-        <item name="android:windowBackground">#001F3F</item>
+        <item name="android:windowBackground">@color/background</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>

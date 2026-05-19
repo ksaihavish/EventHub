@@ -1,27 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- BASE COLORS -->
+    <!-- BASE -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- PRIMARY THEME COLORS -->
-    <color name="primary">#14B8A6</color>
-    <color name="accent">#800000</color>
-    <color name="turquoise">#40E0D0</color>
-    <color name="maroon">#800000</color>
+    <!-- BRAND PALETTE — warm ember dark theme -->
+    <color name="primary">#B87333</color>
+    <color name="primary_dark">#9C5F27</color>
+    <color name="primary_light">#D4935A</color>
+    <color name="accent">#C62828</color>
+    <color name="turquoise">#B87333</color>
+    <color name="maroon">#C62828</color>
 
-    <!-- BACKGROUND & CARD -->
-    <color name="background">#0F172A</color>
-    <color name="card">#111827</color>
-    <color name="card_background">#FFFFFF</color>
-
-    <!-- TEXT COLORS (Matching your layout needs) -->
-    <color name="textPrimary">#40E0D0</color>
-    <color name="textSecondary">#800000</color>
-    <color name="text_primary">#212121</color>
-    <color name="text_secondary">#757575</color>
+    <!-- BACKGROUNDS -->
+    <color name="background">#0B132B</color>
+    <color name="surface">#1C2541</color>
+    <color name="surface_elevated">#3A506B</color>
+    <color name="card">#1C2541</color>
+    <color name="card_background">#1C2541</color>
+    <color name="divider">#3A506B</color>
     <color name="background_light">#F5F5F5</color>
 
-    <!-- <color name="white">#FFFFFF</color> -->
+    <!-- TEXT — headings -->
+    <color name="textPrimary">#F5F5F5</color>
+    <color name="textSecondary">#FF8F62</color>
 
+    <!-- TEXT — body (dark theme) -->
+    <color name="text_primary">#E0E0E0</color>
+    <color name="text_secondary">#9E9E9E</color>
+    <color name="text_dim">#616161</color>
+    <color name="on_primary">#FFFFFF</color>
+
+    <!-- GOOGLE SIGN-IN -->
+    <color name="google_btn_bg">#FFFFFF</color>
+    <color name="google_btn_text">#1F1F1F</color>
+    <color name="google_btn_stroke">#DADCE0</color>
+
+    <!-- RIPPLE -->
+    <color name="ripple_tint">#28FF6B35</color>
 </resources>
